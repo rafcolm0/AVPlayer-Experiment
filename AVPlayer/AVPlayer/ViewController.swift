@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let context = appDelegate.persistentContainer.viewContext;
                 let entity = NSEntityDescription.entity(forEntityName: "VideoObject", in: context)!
                 let video = NSManagedObject(entity: entity, insertInto: context)
+                video.managedObjectContext?.mergePolicy = NSMergePolicy.overwrite;
                 video.setValue(name, forKey: "name");
                 video.setValue(url, forKey: "url");
                 do {
